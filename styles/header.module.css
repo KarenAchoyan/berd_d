@@ -152,6 +152,7 @@
         position: relative;
         z-index: 10;
         border-bottom: 2px solid white;
+        background: black;
     }
 
     .menuOutlined{
