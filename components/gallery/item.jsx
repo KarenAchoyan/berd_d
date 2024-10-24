@@ -1,11 +1,26 @@
-import React from 'react';
-import styles from '@/styles/gallery.module.css'
+import React, { useState } from 'react';
+import styles from '@/styles/gallery.module.css';
 import Image from "next/image";
+import { Skeleton } from 'antd';
 
-const Item = ({image}) => {
+const Item = ({ image }) => {
+    const [isLoading, setIsLoader] = useState(true)
+
     return (
         <div className={styles.image}>
-            <Image width={500} height={500} src={image} alt=""/>
+            {isLoading && (
+                <Skeleton.Image active style={{ width: 500, height: 500 }} /> // Ant Design Skeleton
+            )}
+            <Image
+                width={500}
+                height={500}
+                src={image}
+                alt=""
+                onLoad={() => setIsLoader(false)}
+
+                style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
+
+            />
         </div>
     );
 };

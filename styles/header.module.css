@@ -138,6 +138,14 @@
 
 }
 @media only screen and (max-width: 1200px) {
+    .customDropdown li{
+        list-style: none;
+        margin-left: 20px;
+        font-size: 17px;
+    }
+    .customDropdown a{
+        color: black;
+    }
     .title{
         display: none;
     }
@@ -158,11 +166,13 @@
     .menuOutlined{
         display: block;
         color: white;
-        position: relative;
-        top:-52px;
-        right: 30px;
+        position: absolute;
+        top: 50%;
+        right: 32px;
         justify-content: flex-end;
         font-size: 30px;
+        width: max-content;
+        transform: translateY(-50%);
 
     }
     .titles{
