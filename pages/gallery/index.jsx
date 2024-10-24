@@ -38,12 +38,12 @@ const Index = () => {
                 <PageBanner title={''}/>
 
                 <div className={styles.content}>
-                    <div className={styles.buttons}>
-                        <ul>
-                            <li onClick={() => setPage(0)} className={page === 0 ? styles.active : null}>Տեսանյութեր</li>
-                            <li onClick={() => setPage(1)} className={page === 1 ? styles.active : null}>Նկարներ</li>
-                        </ul>
-                    </div>
+                    {/*<div className={styles.buttons}>*/}
+                    {/*    <ul>*/}
+                    {/*        <li onClick={() => setPage(0)} className={page === 0 ? styles.active : null}>Տեսանյութեր</li>*/}
+                    {/*        <li onClick={() => setPage(1)} className={page === 1 ? styles.active : null}>Նկարներ</li>*/}
+                    {/*    </ul>*/}
+                    {/*</div>*/}
                     <Skeleton loading={!isFetching} active>
 
                         {page === 1 ?

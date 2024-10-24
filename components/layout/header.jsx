@@ -69,7 +69,7 @@ const Header = () => {
                     <div className={styles.title}>
                         <ul>
                             <li><Link href='/costumes'>Մեր տարազները</Link></li>
-                            <li><Link href='/news'>Նորություններ</Link></li>
+                            {/*<li><Link href='/news'>Նորություններ</Link></li>*/}
                             <li><Link href='/studio'>Մեր ստուդիան</Link></li>
                         </ul>
                     </div>
@@ -118,7 +118,7 @@ const Header = () => {
                             <div className={styles.titles}>
                                 <ul>
                                     <li><Link href='/costumes'>Մեր տարազները</Link></li>
-                                    <li><Link href='/news'>Նորություններ</Link></li>
+                                    {/*<li><Link href='/news'>Նորություններ</Link></li>*/}
                                     <li><Link href='/studio'>Մեր ստուդիան</Link></li>
                                 </ul>
                             </div>

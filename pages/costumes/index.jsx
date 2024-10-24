@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import App from "../../components/layout/app";
 import PageBanner from "../../components/pageBanner/pageBanner";
 import styles from "../../styles/studio.module.css"
@@ -55,6 +55,8 @@ const Index = () => {
     const costumes = useSelector(state => state.costume.costumes);
     const content = useSelector(state => state.content.content);
     const isFetching = useSelector(state => state.content.isFetching);
+    const [isLoading, setIsLoader] = useState(true)
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getCostumes.request());
@@ -70,7 +72,7 @@ const Index = () => {
                     <div className={styles.row}>
                         <div className={styles.section}>
                             <Skeleton loading={isFetching} active>
-                                <h1>Մեր ստուդիան</h1>
+                                <h1>Մեր տարազները</h1>
                                 <p dangerouslySetInnerHTML={{__html: content?.content}}></p>
                             </Skeleton>
 
@@ -95,9 +97,16 @@ const Index = () => {
                     <div className={styles.studioGallery}>
                         <Skeleton loading={isFetching} active>
                             <Slider {...settings}>
-                                {costumes.map((item) => (
+                                {costumes?.map((item) => (
                                     <div key={item.id}>
-                                        <Image width={500} height={500} src={process.env.IMAGE_URL2 + item.image} alt="Studio image"/>
+                                        {isLoading && (
+                                            <Skeleton.Image active style={{width: 350, height: 400}}/> // Ant Design Skeleton
+                                        )}
+
+                                        <Image width={500} height={500} src={process.env.IMAGE_URL2 + item.image}
+                                               onLoad={() => setIsLoader(false)}
+                                               style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
+                                               alt="Studio image"/>
                                     </div>
                                 ))}
                             </Slider>
