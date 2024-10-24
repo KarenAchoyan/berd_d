@@ -9,7 +9,7 @@ const Item = ({ image }) => {
     return (
         <div className={styles.image}>
             {isLoading && (
-                <Skeleton.Image active style={{ width: 500, height: 500 }} /> // Ant Design Skeleton
+                <Skeleton.Image active style={{ width: 350, height: 400 }} /> // Ant Design Skeleton
             )}
             <Image
                 width={500}
@@ -17,7 +17,6 @@ const Item = ({ image }) => {
                 src={image}
                 alt=""
                 onLoad={() => setIsLoader(false)}
-
                 style={{opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s'}}
 
             />
